@@ -8,4 +8,5 @@ include_directories(.)
 add_executable(DynArr
     DynamicArr.cpp
     DynamicArr.h
-    main.cpp)
+    main.cpp
+        tests.cpp)

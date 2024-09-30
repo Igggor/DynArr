@@ -47,3 +47,15 @@ void DynamicArr::push_back(double elem) {
 	}
 	arr_[size_++] = elem;
 }
+double DynamicArr::operator[](const int index) const {
+	return arr_[index];
+}
+DynamicArr &DynamicArr::operator=(const DynamicArr &rhs) {
+	if (this == &rhs)
+		return *this;
+	delete[] arr_;
+	arr_ = new double[rhs.capacity()];
+	for (int i = 0; i < rhs.size(); ++i)
+		arr_[i] = rhs[i];
+	return *this;
+}

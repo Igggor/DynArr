@@ -17,6 +17,7 @@ public:
 	size_t size() const;
 	size_t capacity() const;
 	void push_back(double elem);
+	double& operator[](int index) ;
 	double operator[](int index) const;
 	DynamicArr& operator=(const DynamicArr& rhs);
 };

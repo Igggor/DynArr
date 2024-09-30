@@ -1,5 +1,8 @@
 #include "DynamicArr.h"
 
+#include <iostream>
+#include <stdexcept>
+
 const double DynamicArr::coeff_ = 2;
 
 DynamicArr::DynamicArr() {
@@ -49,15 +52,27 @@ void DynamicArr::push_back(double elem) {
 }
 double DynamicArr::operator[](const int index) const {
 	if (index < 0 || index >= size())
-		throw "Bad Allock";
+		throw std::out_of_range("Index out of range");
 	return arr_[index];
 }
+
+double& DynamicArr::operator[](int index) {
+	if (index < 0 || index >= size()) {
+		std::cout << size_ << " " << index;
+		throw std::out_of_range("Index out of range");
+	}
+	return arr_[index];
+}
+
+
 DynamicArr &DynamicArr::operator=(const DynamicArr &rhs) {
 	if (this == &rhs)
 		return *this;
 	delete[] arr_;
 	arr_ = new double[rhs.capacity()];
-	for (int i = 0; i < rhs.size(); ++i)
+	for (int i = 0; i < rhs.size(); ++i) {
 		arr_[i] = rhs[i];
+		std::cout << arr_[i] << " ";
+	}
 	return *this;
 }

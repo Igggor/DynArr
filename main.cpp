@@ -11,8 +11,11 @@ int main() {
 	for (size_t i = 0; i < 3; ++i) {
 		arr3.push_back(i);
 	}
+	std::cout << arr3[2];
 	arr1 = arr3;
-	std::cout << arr1[1];
+	std::cout << arr1[0];
+	// arr1[0] = 0.0;
+	// std::cout << arr1[0];
 
 
 	// test_constructor_default();

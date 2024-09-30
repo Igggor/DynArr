@@ -68,11 +68,11 @@ double& DynamicArr::operator[](int index) {
 DynamicArr &DynamicArr::operator=(const DynamicArr &rhs) {
 	if (this == &rhs)
 		return *this;
+	size_ = rhs.size();
 	delete[] arr_;
 	arr_ = new double[rhs.capacity()];
 	for (int i = 0; i < rhs.size(); ++i) {
 		arr_[i] = rhs[i];
-		std::cout << arr_[i] << " ";
 	}
 	return *this;
 }

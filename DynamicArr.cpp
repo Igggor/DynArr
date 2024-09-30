@@ -48,6 +48,8 @@ void DynamicArr::push_back(double elem) {
 	arr_[size_++] = elem;
 }
 double DynamicArr::operator[](const int index) const {
+	if (index < 0 || index >= size())
+		throw "Bad Allock";
 	return arr_[index];
 }
 DynamicArr &DynamicArr::operator=(const DynamicArr &rhs) {
